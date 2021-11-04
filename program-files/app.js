@@ -1,38 +1,104 @@
 
-const myChart1 = document.getElementById('myChart').getContext('2d');
+const myChart1 = document.getElementById('myChart1').getContext('2d');
 
 const chart1 = new Chart(myChart1, {
     type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
+            data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1800, 2250, 1500, 2500],
+            borderWidth: 1,
+            borderColor: '#CC005C',
+            tension: 0.4,
+            fill: true,
+            backgroundColor: 'rgba(204,0,92,0.5)',
+            pointBackgroundColor: 'rgba(204,0,92,0.9)',
+            pointHoverBackgroundColor: '#19aca4',
+            pointHoverBorderColor: '#19aca4'
+            
         }]
     },
     options: {
+        plugins: {
+            legend: {
+              display: false
+            }
+          },
+        responsive:true,
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
             }
         }
     }
 });
 
+const myChart2 = document.getElementById('myChart2').getContext('2d');
+
+const chart2 = new Chart(myChart2, {
+    type: 'bar',
+    data: {
+        labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+        datasets: [{
+            data: [75, 110, 170, 130, 230, 200, 100],
+            borderWidth: 1,
+            borderColor: '#CC005C',
+            tension: 0.4,
+            fill: true,
+            backgroundColor: '#CC005C',
+            pointBackgroundColor: 'rgba(204,0,92,0.9)',
+            pointHoverBackgroundColor: '#19aca4',
+            pointHoverBorderColor: '#19aca4'
+        }]
+    },
+    options: {
+        plugins: {
+            legend: {
+              display: false
+            }
+          },
+        responsive:true,
+        scales: {
+            y: {
+                beginAtZero: true,
+            }
+        }
+    }
+});
+
+const myChart3 = document.getElementById('myChart3').getContext('2d');
+
+const chart3 = new Chart(myChart3, {
+    type: 'doughnut',
+    data: {
+        labels: ['Desktop', 'Tablet', 'Phones'],
+        datasets: [{
+            data: [300, 90, 95],
+            backgroundColor: [
+            'rgb(204,0,92)',
+            'rgb(25,172,164)',
+            'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 5
+        }]
+    },
+    options: {
+        layout: {
+            padding: {
+                left: 20,
+                top: 0
+            }
+        },
+        plugins: {
+            legend: {
+              display: true,
+              position: 'right',
+              labels:{
+                  boxWidth: 15
+              }
+            }
+          },
+        responsive:true,
+        
+    }
+});
