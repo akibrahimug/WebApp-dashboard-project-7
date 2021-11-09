@@ -67,14 +67,14 @@
                     </div>
                 </div>
                 <div class="chart-1">
-                    <canvas id="myChart1" width="600px" height="300px"></canvas>
+                    <canvas id="myChart1" width="600" height="300"></canvas>
                 </div>
 
                 <div class="charts">
                     <div class="charts-first">
                         <h3 class="body-h3">DAILY TRADDIC</h3>
                         <div class="chart-2">
-                            <canvas id="myChart2" width="600px" height="300px"></canvas>
+                            <canvas id="myChart2" width="600" height="300"></canvas>
                         </div>
                     </div>
                     <div class="charts-second">
@@ -125,160 +125,162 @@
                     </div>
                 </div>
             </section>
-            <section class="new member">
-                <h3 class="body-h3">NEW MEMBERS</h3>
-                <div class="member-block">
-                    <img src="/images/member-1.jpg" alt="member image">
-                    <div class="nameandemail">
-                        <p>Victoria Chambers</p>
-                        <a href=""><p>victoria.chambers80@example.com</p></a>
+            <section class="bottom-page">
+                <section class="new member">
+                    <h3 class="body-h3">NEW MEMBERS</h3>
+                    <div class="member-block">
+                        <img src="/images/member-1.jpg" alt="member image">
+                        <div class="nameandemail">
+                            <p>Victoria Chambers</p>
+                            <a href=""><p>victoria.chambers80@example.com</p></a>
+                        </div>
+                        <p class="date">10/15/20</p>
                     </div>
-                    <p class="date">10/15/20</p>
-                </div>
 
-                <div class="member-block">
-                    <img src="/images/member-2.jpg" alt="member image">
-                    <div class="nameandemail">
-                        <p>Dale Byrd</p>
-                        <a href=""><p>dale.byrd52@example.com</p></a>
+                    <div class="member-block">
+                        <img src="/images/member-2.jpg" alt="member image">
+                        <div class="nameandemail">
+                            <p>Dale Byrd</p>
+                            <a href=""><p>dale.byrd52@example.com</p></a>
+                        </div>
+                        <p class="date">10/15/20</p>
                     </div>
-                    <p class="date">10/15/20</p>
-                </div>
 
-                <div class="member-block">
-                    <img src="/images/member-3.jpg" alt="member image">
-                    <div class="nameandemail">
-                        <p>Dawn Wood</p>
-                        <a href=""><p>dawn.wood16@example.com</p></a>
+                    <div class="member-block">
+                        <img src="/images/member-3.jpg" alt="member image">
+                        <div class="nameandemail">
+                            <p>Dawn Wood</p>
+                            <a href=""><p>dawn.wood16@example.com</p></a>
+                        </div>
+                        <p class="date">10/15/20</p>
                     </div>
-                    <p class="date">10/15/20</p>
-                </div>
 
-                <div class="member-block">
-                    <img src="/images/member-4.jpg" alt="member image">
-                    <div class="nameandemail">
-                        <p>Dan Oliver</p>
-                        <a href=""><p>dan.oliver82@example.com</p></a>
+                    <div class="member-block">
+                        <img src="/images/member-4.jpg" alt="member image">
+                        <div class="nameandemail">
+                            <p>Dan Oliver</p>
+                            <a href=""><p>dan.oliver82@example.com</p></a>
+                        </div>
+                        <p class="date">10/15/20</p>
                     </div>
-                    <p class="date">10/15/20</p>
-                </div>
+                </section>
+                <section class="recent-activity">
+                    <h3 class="body-h3">RECENT ACTIVITY</h3>
+                    
+                    <div class="recent-activity-block">
+                        <img src="/images/member-1.jpg" alt="member image">
+                        <div class="activity-and-date">
+                            <p>Victoria Chambers commented on <span>WebApp's SEO Tips</span></p>
+                            <p>4 hours ago</p>
+                        </div>
+                        <span class="arrow-span">&#62;</span>
+                    </div>
+
+                    <div class="recent-activity-block">
+                        <img src="/images/member-2.jpg" alt="member image">
+                        <div class="activity-and-date">
+                            <p>Dale Bryd liked the post <span>Facebook's Changes for 2021</span></p>
+                            <p>5 hours ago</p>
+                        </div>
+                        <span class="arrow-span">&#62;</span>
+                    </div>
+
+                    <div class="recent-activity-block">
+                        <img src="/images/member-3.jpg" alt="member image">
+                        <div class="activity-and-date">
+                            <p>Dawn Wood commented on <span>Facebook's Changes for 2021</span></p>
+                            <p>5 hours ago</p>
+                        </div>
+                        <span class="arrow-span">&#62;</span>
+                    </div>
+
+                    <div class="recent-activity-block">
+                        <img src="/images/member-4.jpg" alt="member image">
+                        <div class="activity-and-date">
+                            <p>Dan Oliver posted <span>WebApp's SEO Tips</span></p>
+                            <p>1 day ago</p>
+                        </div>
+                        <span class="arrow-span">&#62;</span>
+                    </div>
+                </section>
+                <section class="message-user">
+                    <h3 class="body-h3">MESSAGE USER</h3>
+                    <form>
+                        <label for="user">Search for User</label>
+                        <input type="text" id="user" name="user-input" placeholder="Search For User">
+
+                        <label for="message">Message for user</label>
+                        <textarea name="message for user" id="message" cols="30" rows="8" placeholder="Message For User"></textarea>
+                        <input type="submit" value="SEND">
+                    </form>
+                </section>
+
+                <section class="settings">
+                    <h3 class="body-h3">SETTINGS</h3>
+
+                    <div class="toggler-1">
+                        <label for="email-notification">Send Email Notifications</label>
+                        <div class="toggle-button-cover">
+                            <!-- <div class="button-cover"> -->
+                            <div class="button" id="toggle-1">
+                                <input type="checkbox" class="checkbox" id="email-notification">
+                                <div class="knobs">
+                                <span></span>
+                                </div>
+                                <div class="layer"></div>
+                            <!-- </div> -->
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="toggler-2">
+                        <label for="profile-public">Set Profile to Public</label>
+                        <div class="toggle-button-cover">
+                            <!-- <div class="button-cover"> -->
+                            <div class="button" id="toggle-2">
+                                <input type="checkbox" class="checkbox" id="profile-public">
+                                <div class="knobs">
+                                <span></span>
+                                </div>
+                                <div class="layer"></div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    </div>
+                    <div class="select">
+                        <select name="time-zone" id="time-zone">
+                            <option value="select" disabled selected>Select Timezone</option>
+                            <option value="GMT">Greenwich Mean Time	GMT</option>
+                            <option value="UTC">Universal Coordinated Time	GMT</option>
+                            <option value="ECT">European Central Time	GMT+1:00</option>
+                            <option value="EET">Eastern European Time	GMT+2:00</option>
+                            <option value="ART">(Arabic) Egypt Standard Time	GMT+2:00</option>
+                            <option value="EAT">Eastern African Time	GMT+3:00</option>
+                            <option value="MET">Middle East Time	GMT+3:30</option>
+                            <option value="NET">Near East Time	GMT+4:00</option>
+                            <option value="PLT">Pakistan Lahore Time	GMT+5:00</option>
+                            <option value="IST">India Standard Time	GMT+5:30</option>
+                            <option value="BST">Bangladesh Standard Time	GMT+6:00</option>
+                            <option value="VST">Vietnam Standard Time	GMT+7:00</option>
+                            <option value="CTT">China Taiwan Time	GMT+8:00</option>
+                            <option value="JST">Japan Standard Time	GMT+9:00</option>
+                            <option value="ACT">Australia Central Time	GMT+9:30</option>
+                            <option value="AET">Australia Eastern Time	GMT+10:00</option>
+                            <option value="SST">Solomon Standard Time	GMT+11:00</option>
+                            <option value="NST">New Zealand Standard Time	GMT+12:00</option>
+                            <option value="MIT">Midway Islands Time	GMT-11:00</option>
+                            <option value="HST">Hawaii Standard Time	GMT-10:00</option>
+                            <option value="AST">Alaska Standard Time	GMT-9:00</option>
+                        </select>
+                    </div>
+                    <div class="btn-bottom">
+                        <button class="button-1">SAVE</button>
+                        <button class=" button-2">CANCEL</button>
+                    </div>
+                </section>
             </section>
-            <section class="recent-activity">
-                <h3 class="body-h3">RECENT ACTIVITY</h3>
-                
-                <div class="recent-activity-block">
-                    <img src="/images/member-1.jpg" alt="member image">
-                    <div class="activity-and-date">
-                        <p>Victoria Chambers commented on <span>WebApp's SEO Tips</span></p>
-                        <p>4 hours ago</p>
-                    </div>
-                    <span class="arrow-span">&#62;</span>
-                </div>
-
-                <div class="recent-activity-block">
-                    <img src="/images/member-2.jpg" alt="member image">
-                    <div class="activity-and-date">
-                        <p>Dale Bryd liked the post <span>Facebook's Changes for 2021</span></p>
-                        <p>5 hours ago</p>
-                    </div>
-                    <span class="arrow-span">&#62;</span>
-                </div>
-
-                <div class="recent-activity-block">
-                    <img src="/images/member-3.jpg" alt="member image">
-                    <div class="activity-and-date">
-                        <p>Dawn Wood commented on <span>Facebook's Changes for 2021</span></p>
-                        <p>5 hours ago</p>
-                    </div>
-                    <span class="arrow-span">&#62;</span>
-                </div>
-
-                <div class="recent-activity-block">
-                    <img src="/images/member-4.jpg" alt="member image">
-                    <div class="activity-and-date">
-                        <p>Dan Oliver posted <span>WebApp's SEO Tips</span></p>
-                        <p>1 day ago</p>
-                    </div>
-                    <span class="arrow-span">&#62;</span>
-                </div>
-            </section>
-            <section class="message-user">
-                <h3 class="body-h3">MESSAGE USER</h3>
-                <form>
-                    <label for="user">Search for User</label>
-                    <input type="text" id="user" name="user-input" placeholder="Search For User">
-
-                    <label for="message">Message for user</label>
-                    <textarea name="message for user" id="message" cols="30" rows="10" placeholder="Message For User"></textarea>
-                    <input type="submit" value="SEND">
-                </form>
-            </section>
-
-            <section class="settings">
-                <h3 class="body-h3">SETTINGS</h3>
-
-                <div class="toggler-1">
-                    <label for="email-notification">Send Email Notifications</label>
-                    <div class="toggle-button-cover">
-                        <!-- <div class="button-cover"> -->
-                        <div class="button" id="toggle">
-                            <input type="checkbox" class="checkbox" id="email-notification">
-                            <div class="knobs">
-                            <span></span>
-                            </div>
-                            <div class="layer"></div>
-                        <!-- </div> -->
-                    </div>
-                    </div>
-                </div>
-
-                <div class="toggler-2">
-                    <label for="profile-public">Set Profile to Public</label>
-                    <div class="toggle-button-cover">
-                        <!-- <div class="button-cover"> -->
-                        <div class="button" id="toggle">
-                            <input type="checkbox" class="checkbox" id="profile-public">
-                            <div class="knobs">
-                            <span></span>
-                            </div>
-                            <div class="layer"></div>
-                        <!-- </div> -->
-                    </div>
-                </div>
-                </div>
-                <div class="select">
-                    <select name="time-zone" id="time-zone">
-                        <option value="select" disabled selected>Select Timezone</option>
-                        <option value="GMT">Greenwich Mean Time	GMT</option>
-                        <option value="UTC">Universal Coordinated Time	GMT</option>
-                        <option value="ECT">European Central Time	GMT+1:00</option>
-                        <option value="EET">Eastern European Time	GMT+2:00</option>
-                        <option value="ART">(Arabic) Egypt Standard Time	GMT+2:00</option>
-                        <option value="EAT">Eastern African Time	GMT+3:00</option>
-                        <option value="MET">Middle East Time	GMT+3:30</option>
-                        <option value="NET">Near East Time	GMT+4:00</option>
-                        <option value="PLT">Pakistan Lahore Time	GMT+5:00</option>
-                        <option value="IST">India Standard Time	GMT+5:30</option>
-                        <option value="BST">Bangladesh Standard Time	GMT+6:00</option>
-                        <option value="VST">Vietnam Standard Time	GMT+7:00</option>
-                        <option value="CTT">China Taiwan Time	GMT+8:00</option>
-                        <option value="JST">Japan Standard Time	GMT+9:00</option>
-                        <option value="ACT">Australia Central Time	GMT+9:30</option>
-                        <option value="AET">Australia Eastern Time	GMT+10:00</option>
-                        <option value="SST">Solomon Standard Time	GMT+11:00</option>
-                        <option value="NST">New Zealand Standard Time	GMT+12:00</option>
-                        <option value="MIT">Midway Islands Time	GMT-11:00</option>
-                        <option value="HST">Hawaii Standard Time	GMT-10:00</option>
-                        <option value="AST">Alaska Standard Time	GMT-9:00</option>
-                    </select>
-                </div>
-                <div class="btn-bottom">
-                    <button class="button-1">SAVE</button>
-                    <button class=" button-2">CANCEL</button>
-                </div>
-            </section>
-        </div>
-    </main>
+        </main>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="app.js"></script>
 </body>

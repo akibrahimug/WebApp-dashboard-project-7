@@ -1,6 +1,8 @@
 
 const myChart1 = document.getElementById('myChart1').getContext('2d');
-
+const alertBox = document.querySelector('.alert-display');
+const xbtn = document.querySelector('.close-alert');
+// chart 1
 const chart1 = new Chart(myChart1, {
     type: 'line',
     data: {
@@ -32,7 +34,7 @@ const chart1 = new Chart(myChart1, {
         }
     }
 });
-
+// chart 2
 const myChart2 = document.getElementById('myChart2').getContext('2d');
 
 const chart2 = new Chart(myChart2, {
@@ -65,7 +67,7 @@ const chart2 = new Chart(myChart2, {
         }
     }
 });
-
+// chart 3
 const myChart3 = document.getElementById('myChart3').getContext('2d');
 
 const chart3 = new Chart(myChart3, {
@@ -102,3 +104,8 @@ const chart3 = new Chart(myChart3, {
         
     }
 });
+// alert box
+
+xbtn.addEventListener('click', e => {
+    alertBox.classList.add('hide')
+})

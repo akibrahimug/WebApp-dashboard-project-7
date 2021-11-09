@@ -5,7 +5,50 @@ $white:#fff;
 $primary-color: #CC005C;
 $secondary-color:#7A0037;
 $hover-color:#19aca4;
+
+
+// mixens
+@mixin memberandrecent {
+    display: grid;//repeated
+    grid-template-columns: 1fr;
+    place-items: center;
+    border-bottom: 1px solid rgb(230, 229, 229);
+    padding: 20px;
+}
+
+@mixin member-image {
+    border-radius: 50%;
+    width: 20%;
+    margin-bottom: 5px;
+}
+
+@mixin p-sizing {
+    margin: 0;
+    font-size: 15px;
+}
+
+// hidden js
+
+.hide{
+    visibility: collapse;
+    position: absolute;
+}
+.show{
+    visibility: visible;
+}
+
+// keyframes
+@keyframes ringer {
+    0%{
+        transform: rotate(40deg) scale(1.2);
+    }
+    100%{
+        transform: rotate(-60deg) scale(1);
+    }
+}
 // ====PAGE LOAYOUT =====
+
+
 header{
     grid-area: header;
 }
@@ -16,6 +59,8 @@ main{
     grid-area: main;
 }
 .main-wrap{
+    max-width: 1280px;
+    margin: auto;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: auto;
@@ -23,6 +68,7 @@ main{
         "header header header header"
         "aside aside aside aside"
         "main main main main";
+    border: 1px solid rgb(230, 229, 229);
 }
 
 /* =====TOP-NAV STYLES =======*/
@@ -43,9 +89,10 @@ nav.top-nav{
 }
 /* Nav title styles */
 h1{
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 300;
     margin: 0;
+    align-self: center;
 }
 
 h3{
@@ -62,7 +109,7 @@ sup{
 }
 
 h3.heading-h3{
-    font-size: 13px;
+    font-size: 12px;
     margin-left: 10px;
 }
 /* Head icon styles */
@@ -80,6 +127,11 @@ a.bell-icon{
     top: 10px;
 }
 
+a.bell-icon:hover{
+    animation: ringer .3s .1s 5 backwards;
+    transform-origin: 50% 25%;
+}
+
 /* =====SIDE-NAV STYLES =======*/
 
 aside.side-nav{
@@ -92,7 +144,7 @@ aside.side-nav{
 }
 
 a.side-icons{
-    width: 60%;
+    width: 50%;
     fill: $white;
 }
 
@@ -110,7 +162,7 @@ h3.top-body-h3{
     grid-template-columns: 4fr 1fr;
     background-color: $primary-color;
     border-radius: 5px;
-    font-size: 15px;
+    font-size: 13px;
     place-items: center;
     margin: 10px;
     color: $white;
@@ -118,7 +170,6 @@ h3.top-body-h3{
 
 p{
     font-weight: 100;
-    margin: 10px;
 }
 
 span.alert-span{
@@ -130,6 +181,9 @@ span.close-alert{
     font-size: 10px;
     justify-self: end;
     margin-right: 13px;
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 /* Traffic styles */
@@ -234,26 +288,23 @@ strong{
 
 // new members
 .member-block{
-    display: grid;//repeated
-    grid-template-columns: 1fr;
-    place-items: center;
-    border-bottom: 1px solid rgb(230, 229, 229);
-    padding: 20px;
+    @include memberandrecent();
 
-    img{//repeated
-        border-radius: 60%;
-        width: 20%;
-        margin-bottom: 5px;
+    img{
+        @include member-image();
     }
 
     p{
-        margin: 0;
-        font-size: 15px;
+        @include p-sizing();
     }
 
     a{
         text-decoration: none;
         color: $secondary-color;
+    }
+
+    .nameandemail{
+        text-align: center;
     }
 
     .date{
@@ -264,26 +315,23 @@ strong{
 
 // recent activity 
 .recent-activity-block{
-    display: grid;//repeated
-    grid-template-columns: 1fr;
-    place-items: center;
-    border-bottom: 1px solid rgb(230, 229, 229);
-    padding: 20px;
+    @include memberandrecent();
     text-align: center;
 
-    img{//repeated
-        border-radius: 50%;
-        width: 20%;
-        margin-bottom: 5px;
+    img{
+        @include member-image();
     }
 
     p{
-        margin: 0;
-        font-size: 15px;
+       @include p-sizing();
     }
 
     span{
         font-weight: 400;
+    }
+
+    span.arrow-span{
+        visibility: hidden;
     }
 }
 
@@ -383,9 +431,12 @@ form{
     z-index: 1;
 }
 
-#toggle .knobs:before,
- #toggle .knobs:after, 
- #toggle .knobs span {
+#toggle-1 .knobs:before,
+ #toggle-1 .knobs:after, 
+ #toggle-1 .knobs span,
+ #toggle-2 .knobs:before,
+ #toggle-2 .knobs:after, 
+ #toggle-2 .knobs span {
     position: absolute;
     top: 4px;
     width: 20px;
@@ -400,40 +451,41 @@ form{
     transition: 0.3s ease all;
 }
 
-#toggle .knobs:before, #toggle .knobs:after
-{
+#toggle-1 .knobs:before, #toggle-1 .knobs:after,
+#toggle-2 .knobs:before, #toggle-2 .knobs:after{
     color: $white;
     z-index: 1;
 }
 
-#toggle .knobs:before
-{
+#toggle-1 .knobs:before,
+#toggle-2 .knobs:before{
     content: 'ON';
     left: 4px;
 }
 
-#toggle .knobs:after
+#toggle-1 .knobs:after,
+#toggle-2 .knobs:after
 {
     content: 'OFF';
     right: 4px;
 }
 
-#toggle .knobs span
-{
+#toggle-1 .knobs span,
+#toggle-2 .knobs span{
     max-width: 20px;
     left: 55px;
     background-color: $white;
     z-index: 2;
 }
 
-#toggle .checkbox:checked + .knobs span
-{
+#toggle-1 .checkbox:checked + .knobs span
+#toggle-2 .checkbox:checked + .knobs span{
     left: 4px;
     background-color: $white;
 }
 
-#toggle .checkbox:checked ~ .layer
-{
+#toggle-1 .checkbox:checked ~ .layer
+#toggle-2 .checkbox:checked ~ .layer{
     background-color: $hover-color;
 }
 
@@ -441,16 +493,18 @@ form{
 .select{
     display: grid;
     grid-template-columns: 1fr;
+    margin: 10px;
 }
 select{
-    margin: 10px;
+    width: 100%;
     outline: none;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 5px;
+    height: 50px;
     border-radius: 5px;
     border: 1px solid rgba(148, 148, 148, 0.3);
     background-color: rgba(148, 148, 148, 0.1);
     color: rgba(148, 148, 148, 0.9);
+    box-sizing: border-box;
 }
 
 .btn-bottom {
@@ -494,6 +548,7 @@ select{
         grid-template-columns: 3fr 1fr 1fr;
         padding-right: 0;
         h1{
+            font-size: 1.5rem;
             align-self: center;
         }
 
@@ -517,6 +572,12 @@ select{
             font-size: 15px;
         }
     }
+    .alert-display{
+        p{
+            place-self: start;
+            margin-left: 15px;
+        }
+    }
 // traffic
     div.traffic{
         display: grid;
@@ -535,7 +596,9 @@ select{
         border: none;
     }
     .chart-2{
-        width: 95%;
+       margin: auto;
+       width: 350px;
+       max-width: 420px;
     }
 
     .chart-2,
@@ -545,9 +608,10 @@ select{
     }
 
     .chart-3{
-        max-width: 280px;
+        width: 280px;
+        max-width: 350px;
         position: relative;
-        bottom: 40px;
+        bottom: 45px;
     }
 
     .charts-first,
@@ -564,7 +628,6 @@ select{
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        height: 250px;
     }
 
     // social stats
@@ -639,6 +702,7 @@ select{
             color: $primary-color;
             justify-self: end;
             align-self: center;
+            visibility: visible;
         }
 
         p{
@@ -663,5 +727,105 @@ select{
     h3.body-h3{
         font-size: 15px;
         font-weight: 600;
+    }
+}
+
+@media (min-width: 1024px){
+
+    // top style
+    nav.top-nav{
+        grid-template-columns: 4fr 2fr 1fr;
+        padding-right: 0;
+        h1{
+            align-self: center;
+        }
+
+        h3.heading{
+            place-self: center;
+        }
+
+        a.bell-icon{
+            width: 10%;
+            place-self: end;
+            top: 10px;
+            right: 5px;
+        }
+
+        // svg{
+        //     width: 100%;
+            
+        // }
+    }
+// dashboard
+    header.dash{
+        grid-template-columns: 1fr 7fr;
+    }
+
+    .chart-2{
+        width: 400px;
+        max-width: 410px;
+    }
+
+    .chart-3{
+        width: 300px;
+        left: 20px;
+    }
+
+    .new-member{
+        grid-area: new-member;
+    }
+
+    .recent-activity{
+        grid-area: recent-activity;
+    }
+
+    .message-user{
+        grid-area: message-user;
+    }
+
+    .settings{
+        border-left: 1px solid rgb(230, 229, 229);
+        grid-area: settings;
+
+        .toggler-2{
+            margin-top: 20px;
+        }
+    }
+
+    .bottom-page{
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "new-member new-member recent-activity recent-activity"
+            "message-user message-user settings settings"
+    }
+
+    .social-stat-block{
+        border-right: rgb(230, 229, 229);
+    }
+
+    // new-member
+    .member-block{
+        width: 420px;
+    }
+
+    .recent-activity{
+        border-left: 1px solid rgb(230, 229, 229);
+    }
+
+    span.arrow-span{
+        visibility: visible;
+    }
+
+    form{
+        border: none;
+    }
+
+    // aside
+
+    aside.side-nav{
+        grid-template-columns:70px; 
+        width: 60px;
     }
 }
