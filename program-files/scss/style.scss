@@ -116,15 +116,33 @@ h3.heading-h3{
 .top-icon{
     border-radius: 50%;
     width: 100%;
+    max-width: 50px;
+}
+// notification styles
+.nav-svg{
+    display: grid;
+    grid-template-columns:1fr; 
 }
 
-a.bell-icon{
-    width:45%;
-    height: 100%;
-    place-self: center;
-    fill: $white;
+.notification-dot{
+    fill: #28faf0;
+    width: 15%;
+    max-width: 10px;
+    place-self: end;
+    height: 65%;
+    padding-right: 5px;
     position: relative;
-    top: 10px;
+    bottom: 2px;
+    left: 2px;
+}
+
+.bell-icon{
+    place-self: end;
+    svg{
+        width: 90%;
+        fill: $white;
+        max-width: 20px;
+    }
 }
 
 a.bell-icon:hover{
@@ -552,15 +570,18 @@ select{
             align-self: center;
         }
 
-        a.bell-icon{
-            width: 25%;
-            place-self: end;
-            top: 6px;
+        .notification-dot{
+            bottom: 0;
+            left: 0;
         }
 
-        svg{
-            width: 70%;
-            
+        .bell-icon{
+            place-self: end;
+            width: 30px;
+
+            svg{
+                width: 70%;
+            }
         }
     }
 // dashboard
@@ -621,6 +642,10 @@ select{
     }
 
     .charts-first{
+        border-right: none;
+    }
+
+    .charts-second{
         border-right: none;
     }
 
@@ -734,7 +759,7 @@ select{
 
     // top style
     nav.top-nav{
-        grid-template-columns: 4fr 2fr 1fr;
+        grid-template-columns: 5fr 1fr 1fr;
         padding-right: 0;
         h1{
             align-self: center;
@@ -745,17 +770,13 @@ select{
         }
 
         a.bell-icon{
-            width: 10%;
+            width: 30px;
             place-self: end;
             top: 10px;
             right: 5px;
         }
-
-        // svg{
-        //     width: 100%;
-            
-        // }
     }
+
 // dashboard
     header.dash{
         grid-template-columns: 1fr 7fr;
@@ -807,7 +828,7 @@ select{
 
     // new-member
     .member-block{
-        width: 420px;
+        width: 430px;
     }
 
     .recent-activity{
