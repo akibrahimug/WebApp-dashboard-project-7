@@ -144,13 +144,16 @@ h3.heading-h3{
 .bell-icon{
     place-self: end;
     margin-right: 5px;
-    position: relative;
-    display: inline-block;
     svg{
         width: 90%;
         fill: $white;
         max-width: 20px;
     }
+}
+
+.alert{
+    position: relative;
+    display: inline-block;
 }
 
 .dropbtn {
