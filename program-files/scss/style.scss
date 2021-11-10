@@ -40,10 +40,16 @@ $hover-color:#19aca4;
 // keyframes
 @keyframes ringer {
     0%{
-        transform: rotate(40deg) scale(1.2);
+        transform: scale(1s);
+    }
+    25%{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(0.9);
     }
     100%{
-        transform: rotate(-60deg) scale(1);
+        transform:  scale(1);
     }
 }
 // ====PAGE LOAYOUT =====
@@ -126,18 +132,20 @@ h3.heading-h3{
 
 .notification-dot{
     fill: #28faf0;
-    width: 15%;
-    max-width: 10px;
+    width: 12%;
+    max-width: 7px;
     place-self: end;
     height: 65%;
     padding-right: 5px;
     position: relative;
     bottom: 2px;
-    left: 2px;
 }
 
 .bell-icon{
     place-self: end;
+    margin-right: 5px;
+    position: relative;
+    display: inline-block;
     svg{
         width: 90%;
         fill: $white;
@@ -145,9 +153,37 @@ h3.heading-h3{
     }
 }
 
-a.bell-icon:hover{
-    animation: ringer .3s .1s 5 backwards;
-    transform-origin: 50% 25%;
+.dropbtn {
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(25,172,164,0.95);
+    width: 163px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding-left: 0;
+  }
+
+  .dropdown-content li {
+    color: white;
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    border-bottom: 1px solid rgb(230, 229, 229);
+    transition: background-color .5s;
+    &:hover{
+        background-color: #7A0037;
+    }
+  }
+
+.bell-icon:hover{
+    animation: ringer .5s  forwards;
+    transform-origin: 50% 30%;
 }
 
 /* =====SIDE-NAV STYLES =======*/
@@ -164,6 +200,10 @@ aside.side-nav{
 a.side-icons{
     width: 50%;
     fill: $white;
+    transition: transform .5s;
+    &:hover{
+        transform: scale(1.2);
+    }
 }
 
 /* Top-body heading styles */
@@ -238,6 +278,7 @@ h4:hover{
     background-color: $hover-color;
     color: $white;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .time{
@@ -282,10 +323,14 @@ h4:hover{
     display: grid;
     grid-template-columns: 1fr 3fr;
     border: 1px solid  rgba(148, 148, 148, 0.6);
-    padding: 15px;
+    padding: 10px;
     margin: 10px;
     background-color: rgb(240, 239, 239);
     border-radius: 5px;
+    transition: transform .5s;
+    &:hover{
+        transform: scale(0.9);
+    }
 }
 
 .socials{
@@ -380,8 +425,12 @@ form{
         background-color: $primary-color;
         color: $white;
         font-weight: 100;
+        transition: transform .5s;
         &:hover{
             background-color: $hover-color;
+        }
+        &:active{
+            transform: scale(0.9);
         }
     }
 
@@ -496,13 +545,13 @@ form{
     z-index: 2;
 }
 
-#toggle-1 .checkbox:checked + .knobs span
+#toggle-1 .checkbox:checked + .knobs span,
 #toggle-2 .checkbox:checked + .knobs span{
     left: 4px;
     background-color: $white;
 }
 
-#toggle-1 .checkbox:checked ~ .layer
+#toggle-1 .checkbox:checked ~ .layer,
 #toggle-2 .checkbox:checked ~ .layer{
     background-color: $hover-color;
 }
@@ -541,12 +590,20 @@ select{
         margin-bottom: 15px;
         border-radius: 5px;
         border: 1px solid rgba(148, 148, 148, 0.3);
-        background-color: rgba(148, 148, 148, 0.1);
         margin: 10px;
+        transition: transform .5s;
+        &:active{
+            transform: scale(0.9);
+        }
     }
     .button-2{
         background-color: rgba(148, 148, 148, 0.9);
         color: $white;
+        transition: all .5s;
+        &:active{
+            background-color:rgba(148, 148, 148, 0.1);
+            color: #000;
+        }
     }
     }
 
@@ -573,6 +630,7 @@ select{
         .notification-dot{
             bottom: 0;
             left: 0;
+            margin-right: 5px;
         }
 
         .bell-icon{
@@ -582,6 +640,10 @@ select{
             svg{
                 width: 70%;
             }
+        }
+
+        .dropdown-content {
+            width: 185px;
         }
     }
 // dashboard
@@ -630,9 +692,10 @@ select{
 
     .chart-3{
         width: 280px;
-        max-width: 350px;
+        max-width: 300px;
         position: relative;
         bottom: 45px;
+        left: 30px;
     }
 
     .charts-first,
@@ -695,17 +758,21 @@ select{
     // new members
 
     .member-block{
-        grid-template-columns: 70px 3fr 1fr;
+        grid-template-columns: 70px 5fr 1fr;
         place-items: start;
 
         img{
-            width: 90%;
+            width: 100%;
         }
     }
 
     .nameandemail{
         margin-left: 10px;
         align-self: center;
+
+        p{
+            text-align: start;
+        }
     }
 
     p.date{
@@ -720,7 +787,7 @@ select{
         place-items: start;
 
         img{
-            width: 90%;
+            width: 100%;
         }
 
         span.arrow-span{
@@ -828,7 +895,7 @@ select{
 
     // new-member
     .member-block{
-        width: 430px;
+        width: 533px;
     }
 
     .recent-activity{
@@ -848,5 +915,12 @@ select{
     aside.side-nav{
         grid-template-columns:70px; 
         width: 60px;
+    }
+
+    // charts
+
+    .chart-3{
+        left: 70px;
+        bottom: 50px;
     }
 }

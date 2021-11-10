@@ -2,6 +2,13 @@
 const myChart1 = document.getElementById('myChart1').getContext('2d');
 const alertBox = document.querySelector('.alert-display');
 const xbtn = document.querySelector('.close-alert');
+const bellIcon = document.querySelector('.dropdownbtn');
+const notificationDot =document.querySelector('.notification-dot');
+const dropdownMenue = document.querySelector('.dropdown-content');
+const topNav = document.querySelector('.top-nav');
+const pageWrap = document.querySelector('.main-wrap');
+
+
 // chart 1
 const chart1 = new Chart(myChart1, {
     type: 'line',
@@ -34,6 +41,8 @@ const chart1 = new Chart(myChart1, {
         }
     }
 });
+
+
 // chart 2
 const myChart2 = document.getElementById('myChart2').getContext('2d');
 
@@ -67,6 +76,8 @@ const chart2 = new Chart(myChart2, {
         }
     }
 });
+
+
 // chart 3
 const myChart3 = document.getElementById('myChart3').getContext('2d');
 
@@ -103,9 +114,29 @@ const chart3 = new Chart(myChart3, {
         responsive:true,
         
     }
-});
-// alert box
+})
 
+
+// alert box
 xbtn.addEventListener('click', e => {
     alertBox.classList.add('hide')
 })
+
+
+// notification and drop-down
+
+
+pageWrap.addEventListener('click', e => {
+    e.preventDefault()
+    dropdown(e.target, bellIcon)
+})
+
+const dropdown = (button, bell) => {
+    if(button === bell){
+        notificationDot.classList.add('hide');
+        dropdownMenue.style.display = "block";
+    }else{
+        dropdownMenue.style.display = "none";
+        return dropdownMenue;
+    }
+}

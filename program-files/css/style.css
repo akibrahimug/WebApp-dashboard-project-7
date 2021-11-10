@@ -9,10 +9,16 @@
 
 @keyframes ringer {
   0% {
-    transform: rotate(40deg) scale(1.2);
+    transform: scale(1s);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
   }
   100% {
-    transform: rotate(-60deg) scale(1);
+    transform: scale(1);
   }
 }
 header {
@@ -95,18 +101,20 @@ h3.heading-h3 {
 
 .notification-dot {
   fill: #28faf0;
-  width: 15%;
-  max-width: 10px;
+  width: 12%;
+  max-width: 7px;
   place-self: end;
   height: 65%;
   padding-right: 5px;
   position: relative;
   bottom: 2px;
-  left: 2px;
 }
 
 .bell-icon {
   place-self: end;
+  margin-right: 5px;
+  position: relative;
+  display: inline-block;
 }
 .bell-icon svg {
   width: 90%;
@@ -114,9 +122,37 @@ h3.heading-h3 {
   max-width: 20px;
 }
 
-a.bell-icon:hover {
-  animation: ringer 0.3s 0.1s 5 backwards;
-  transform-origin: 50% 25%;
+.dropbtn {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(25, 172, 164, 0.95);
+  width: 163px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  padding-left: 0;
+}
+
+.dropdown-content li {
+  color: white;
+  padding: 16px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 13px;
+  border-bottom: 1px solid #e6e5e5;
+  transition: background-color 0.5s;
+}
+.dropdown-content li:hover {
+  background-color: #7A0037;
+}
+
+.bell-icon:hover {
+  animation: ringer 0.5s forwards;
+  transform-origin: 50% 30%;
 }
 
 /* =====SIDE-NAV STYLES =======*/
@@ -132,6 +168,10 @@ aside.side-nav {
 a.side-icons {
   width: 50%;
   fill: #fff;
+  transition: transform 0.5s;
+}
+a.side-icons:hover {
+  transform: scale(1.2);
 }
 
 /* Top-body heading styles */
@@ -206,6 +246,7 @@ h4:hover {
   background-color: #19aca4;
   color: #fff;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .time {
@@ -248,10 +289,16 @@ h4:hover {
   display: grid;
   grid-template-columns: 1fr 3fr;
   border: 1px solid rgba(148, 148, 148, 0.6);
-  padding: 15px;
+  padding: 10px;
   margin: 10px;
   background-color: #f0efef;
   border-radius: 5px;
+  transition: transform 0.5s;
+}
+.facebook:hover,
+.instagram:hover,
+.twitter:hover {
+  transform: scale(0.9);
 }
 
 .socials {
@@ -348,9 +395,13 @@ form input[type=submit] {
   background-color: #CC005C;
   color: #fff;
   font-weight: 100;
+  transition: transform 0.5s;
 }
 form input[type=submit]:hover {
   background-color: #19aca4;
+}
+form input[type=submit]:active {
+  transform: scale(0.9);
 }
 
 .toggler-1,
@@ -462,12 +513,14 @@ form input[type=submit]:hover {
   z-index: 2;
 }
 
-#toggle-1 .checkbox:checked + .knobs span #toggle-2 .checkbox:checked + .knobs span {
+#toggle-1 .checkbox:checked + .knobs span,
+#toggle-2 .checkbox:checked + .knobs span {
   left: 4px;
   background-color: #fff;
 }
 
-#toggle-1 .checkbox:checked ~ .layer #toggle-2 .checkbox:checked ~ .layer {
+#toggle-1 .checkbox:checked ~ .layer,
+#toggle-2 .checkbox:checked ~ .layer {
   background-color: #19aca4;
 }
 
@@ -506,12 +559,20 @@ select {
   margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid rgba(148, 148, 148, 0.3);
-  background-color: rgba(148, 148, 148, 0.1);
   margin: 10px;
+  transition: transform 0.5s;
+}
+.btn-bottom button:active {
+  transform: scale(0.9);
 }
 .btn-bottom .button-2 {
   background-color: rgba(148, 148, 148, 0.9);
   color: #fff;
+  transition: all 0.5s;
+}
+.btn-bottom .button-2:active {
+  background-color: rgba(148, 148, 148, 0.1);
+  color: #000;
 }
 
 @media (min-width: 768px) {
@@ -533,6 +594,7 @@ select {
   nav.top-nav .notification-dot {
     bottom: 0;
     left: 0;
+    margin-right: 5px;
   }
   nav.top-nav .bell-icon {
     place-self: end;
@@ -540,6 +602,9 @@ select {
   }
   nav.top-nav .bell-icon svg {
     width: 70%;
+  }
+  nav.top-nav .dropdown-content {
+    width: 185px;
   }
 
   header.dash {
@@ -585,9 +650,10 @@ select {
 
   .chart-3 {
     width: 280px;
-    max-width: 350px;
+    max-width: 300px;
     position: relative;
     bottom: 45px;
+    left: 30px;
   }
 
   .charts-first,
@@ -647,16 +713,19 @@ select {
   }
 
   .member-block {
-    grid-template-columns: 70px 3fr 1fr;
+    grid-template-columns: 70px 5fr 1fr;
     place-items: start;
   }
   .member-block img {
-    width: 90%;
+    width: 100%;
   }
 
   .nameandemail {
     margin-left: 10px;
     align-self: center;
+  }
+  .nameandemail p {
+    text-align: start;
   }
 
   p.date {
@@ -669,7 +738,7 @@ select {
     place-items: start;
   }
   .recent-activity-block img {
-    width: 90%;
+    width: 100%;
   }
   .recent-activity-block span.arrow-span {
     color: #CC005C;
@@ -760,7 +829,7 @@ div.toggler-2 {
   }
 
   .member-block {
-    width: 430px;
+    width: 533px;
   }
 
   .recent-activity {
@@ -778,6 +847,11 @@ div.toggler-2 {
   aside.side-nav {
     grid-template-columns: 70px;
     width: 60px;
+  }
+
+  .chart-3 {
+    left: 70px;
+    bottom: 50px;
   }
 }
 
