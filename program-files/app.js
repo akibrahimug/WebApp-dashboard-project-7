@@ -167,25 +167,24 @@ xbtn.addEventListener('click', e => {
 // notification and drop-down
 const bellDropDown = document.querySelector('.dropdown-content-top')
 
+for(let i = 0; i <= 2; i++){
+    const listItem = document.createElement('li');
+    listItem.textContent = 'Your Changes have been saved';
+    if(i === 1){
+        listItem.textContent = 'User Name is now Public'
+    }
+    if(i === 2){
+        listItem.textContent = 'New Update'
+    }
+    bellDropDown.appendChild(listItem);
+}
 
 pageWrap.addEventListener('click', e => {
     dropdown(e.target, alertBox)
     if(e.target === bellIcon){
         notificationDot.style.display = 'none'
         bellDropDown.style.display = 'block'
-        for(let i = 0; i <= 2; i++){
-            const listItem = document.createElement('li');
-            listItem.textContent = 'Your Changes have been saved';
-            if(i === 1){
-                listItem.textContent = 'User Name is now Public'
-            }
-            if(i === 2){
-                listItem.textContent = 'New Update'
-            }
-            bellDropDown.appendChild(listItem);
-        }
        
-        
     }else{
         notificationDot.style.display = 'block';
         bellDropDown.style.display = 'none'
