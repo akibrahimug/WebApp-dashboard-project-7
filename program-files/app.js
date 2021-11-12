@@ -338,9 +338,9 @@ const cancel = document.getElementById('cancel')
 save.addEventListener('click', e => {
     const key1 = email.checked;
     const key2 = publicProfile.checked
-    localStorage.setItem(email, key1);
-    localStorage.setItem(publicProfile, key2);
-    localStorage.setItem(timezone, timezone.value)
+    localStorage.setItem("email", key1);
+    localStorage.setItem("publicProfile", key2);
+    localStorage.setItem("timezone", timezone.value)
 })
 
 cancel.addEventListener("click", () => {
@@ -352,13 +352,13 @@ cancel.addEventListener("click", () => {
   });
   
 
-  let emailChecked = JSON.parse(localStorage.getItem(email));
+  let emailChecked = JSON.parse(localStorage.getItem("email"));
   email.checked = emailChecked;
 
   
-  let profileChecked = JSON.parse(localStorage.getItem(publicProfile));
+  let profileChecked = JSON.parse(localStorage.getItem("publicProfile"));
   publicProfile.checked = profileChecked;
   
-  let timezoneSelected = localStorage.getItem(timezone);
+  let timezoneSelected = localStorage.getItem("timezone");
   timezone.value = timezoneSelected;
   
