@@ -160,13 +160,22 @@ const chart3 = new Chart(myChart3, {
 // alert box
 xbtn.addEventListener('click', e => {
     alertBox.classList.add('hide')
+    notificationDot.classList.add('hide')
 })
 
 
 // notification and drop-down
 pageWrap.addEventListener('click', e => {
     dropdown(e.target, alertBox)
-    // alertBox.classList.add('hide')
+    if(e.target === bellIcon){
+        notificationDot.style.display = 'none'
+        for(let i = 1; i <= 2; i++){
+            on('You have unread messages');
+        }
+        
+    }else{
+        notificationDot.style.display = 'block';
+    }
     if(e.target ===  document.getElementById("overlay")){
         off()
     }
@@ -184,7 +193,6 @@ for(let i = 1; i <= 2; i++){
 
 const dropdown = (button, alert) => {
     if(button === alert){
-       
         dropdownMenue.style.display = "block";
     }else{
         dropdownMenue.style.display = "none";
@@ -263,7 +271,7 @@ const autocomplete = (inp, arr) => {
     });
     /*execute a function presses a key on the keyboard:*/
     inp.addEventListener("keydown", function(e) {
-        const x = document.getElementById(this.id + "autocomplete-list");
+        let x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) {
           /*If the arrow DOWN key is pressed,
@@ -318,24 +326,39 @@ const autocomplete = (inp, arr) => {
   });
   }
   autocomplete(document.getElementById("user"), userNames);
+
+
 // localStorage
-const emailNotification = document.getElementById('email-notification');
-const publicProfile = document.getElementById('profile-public');
+const email = document.getElementById('email-notification');
+const publicProfile = document.querySelector('.toggler-2 input');
 const timezone = document.getElementById('time-zone');
 const save = document.getElementById('save');
 const cancel = document.getElementById('cancel') 
 
 save.addEventListener('click', e => {
-    const key1 = emailNotification.checked;
-    const key2 = publicProfile.checked;
-    const key3 = timezone.value;
-    // console.log(key1);
-    // console.log(key2)
-if(key1 === true ){
-    console.log('yes')
-}else{
-    console.log('no')
-}
+    const key1 = email.checked;
+    const key2 = publicProfile.checked
+    localStorage.setItem(email, key1);
+    localStorage.setItem(publicProfile, key2);
+    localStorage.setItem(timezone, timezone.value)
 })
 
-// JSON.Stringify()
+cancel.addEventListener("click", () => {
+    email.checked = false;
+    publicProfile.checked = false;
+    timezone.value = 'select';
+    localStorage.clear();
+    localStorage.setItem(timezone, timezone.value)
+  });
+  
+
+  let emailChecked = JSON.parse(localStorage.getItem(email));
+  email.checked = emailChecked;
+
+  
+  let profileChecked = JSON.parse(localStorage.getItem(publicProfile));
+  publicProfile.checked = profileChecked;
+  
+  let timezoneSelected = localStorage.getItem(timezone);
+  timezone.value = timezoneSelected;
+  
