@@ -48,7 +48,7 @@ const chart1 = new Chart(myChart1, {
         }
     }
 });
-
+//========DISPLAY DIFFERENT CHARTS HOURLY DAILY WEEKLY AND MONTHLY ON CLICK==========
 // hourly
 const updateByHour = () => {
     chart1.data.datasets[0].data = [750, 1250, 1000, 2000, 1500, 1750, 1250, 1800, 2250, 1500, 2500];
@@ -154,7 +154,7 @@ const chart3 = new Chart(myChart3, {
         
     }
 })
-//========DISPLAY DIFFERENT CHARTS HOURLY DAILY WEEKLY AND MONTHLY ON CLICK==========
+
 
 // alert box
 xbtn.addEventListener('click', e => {
@@ -210,5 +210,24 @@ form.addEventListener('click', e => {
         li.classList.add('hide');
     })
 })
+// localStorage
+const emailNotification = document.getElementById('email-notification');
+const publicProfile = document.getElementById('profile-public');
+const timezone = document.getElementById('time-zone');
+const save = document.getElementById('save');
+const cancel = document.getElementById('cancel') 
 
+save.addEventListener('click', e => {
+    const key1 = emailNotification.checked;
+    const key2 = publicProfile.checked;
+    const key3 = timezone.value;
+    // console.log(key1);
+    // console.log(key2)
+if(key1 === true ){
+    console.log('yes')
+}else{
+    console.log('no')
+}
+})
 
+// JSON.Stringify()

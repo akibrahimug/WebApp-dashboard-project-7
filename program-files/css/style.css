@@ -9,7 +9,7 @@
 
 @keyframes ringer {
   0% {
-    transform: scale(1s);
+    transform: scale(1);
   }
   25% {
     transform: scale(1.2);
@@ -647,7 +647,7 @@ select {
   .chart-2,
 .chart-3 {
     border: none;
-    padding: none;
+    padding: 0;
   }
 
   .chart-3 {
