@@ -26,7 +26,32 @@ $hover-color:#19aca4;
     margin: 0;
     font-size: 15px;
 }
-
+// overlay js
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+  #text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 40px;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(0,0,0,0.7);
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
 // hidden js
 
 .hide{
@@ -54,7 +79,6 @@ $hover-color:#19aca4;
 }
 // ====PAGE LOAYOUT =====
 
-
 header{
     grid-area: header;
 }
@@ -76,6 +100,7 @@ main{
         "main main main main";
     border: 1px solid rgb(230, 229, 229);
 }
+// overlay
 
 /* =====TOP-NAV STYLES =======*/
 
@@ -152,33 +177,6 @@ h3.heading-h3{
 }
 
 
-.dropbtn {
-    cursor: pointer;
-  }
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: rgba(25,172,164,0.95);
-    width: 163px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    border-radius: 5px;
-    padding-left: 0;
-  }
-
-  .dropdown-content li {
-    color: white;
-    padding: 16px 16px;
-    text-decoration: none;
-    display: block;
-    font-size: 13px;
-    border-bottom: 1px solid rgb(230, 229, 229);
-    transition: background-color .5s;
-    &:hover{
-        background-color: #7A0037;
-    }
-  }
 
 .bell-icon:hover{
     animation: ringer .5s  forwards;
@@ -228,6 +226,58 @@ h3.top-body-h3{
         display: inline-block;
     }
     
+}
+
+.dropbtn {
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(25,172,164,0.95);
+    width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding-left: 0;
+    top: 210px;
+  }
+
+  .dropdown-content li {
+    color: white;
+    padding: 16px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 13px;
+    border-bottom: 1px solid rgb(230, 229, 229);
+    transition: background-color .5s;
+    &:hover{
+        background-color: #7A0037;
+    }
+  }
+
+.dropdown-content:after, .dropdown-content:before {
+    bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none
+}
+
+.dropdown-content:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color:rgba(25,172,164,0.95);
+	margin-left: -20px;
+}
+.dropdown-content:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-bottom-color: rgba(25,172,164,0.95);
+	border-width: 15px;
+	margin-left: -26px;
 }
 
 p{
@@ -421,6 +471,10 @@ form{
         border: 1px solid rgba(148, 148, 148, 0.3);
         background-color: rgba(148, 148, 148, 0.1);
     }
+    input{
+        width: 100%;
+        box-sizing: border-box;
+    }
     input::placeholder,
     textarea::placeholder{
         color: rgba(148, 148, 148, 0.8);
@@ -439,7 +493,34 @@ form{
     }
 
 }
+// autocomplete style
+.autocomplete {
+    position: relative;
+    display: inline-block;
+}
 
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index:2;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    color: #ffffff;
+  }
 // settings
 .toggler-1,
 .toggler-2{
@@ -635,7 +716,7 @@ select{
             bottom: 0;
             left: 0;
             margin-right: 5px;
-        }
+        }   
 
         .bell-icon{
             place-self: end;
@@ -650,6 +731,7 @@ select{
             width: 185px;
         }
     }
+
 // dashboard
     header.dash{
         grid-template-columns: 1fr 5fr;
@@ -665,6 +747,10 @@ select{
             margin-left: 15px;
         }
     }
+    // alert
+    .dropdown-content {
+        top: 170px;
+      }
 // traffic
     div.traffic{
         display: grid;
