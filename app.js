@@ -374,4 +374,9 @@ cancel.addEventListener("click", () => {
   
   let timezoneSelected = localStorage.getItem("timezone");
   timezone.value = timezoneSelected;
+
+ if(timezone.value === '' || timezone.value === 0){
+     timezone.value = 'select'
+ }
+  
   
