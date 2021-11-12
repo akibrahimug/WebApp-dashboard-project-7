@@ -205,19 +205,30 @@ h3.top-body-h3 {
   cursor: pointer;
 }
 
-.dropdown-content {
+.dropdown-content,
+.dropdown-content-top {
   display: none;
   position: absolute;
-  background-color: rgba(25, 172, 164, 0.95);
-  width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   border-radius: 5px;
   padding-left: 0;
-  top: 210px;
 }
 
-.dropdown-content li {
+.dropdown-content {
+  width: 250px;
+  top: 210px;
+  background-color: rgba(25, 172, 164, 0.95);
+}
+
+.dropdown-content-top {
+  width: 150px;
+  background-color: rgba(204, 0, 92, 0.8);
+  border: 2px solid #fff;
+}
+
+.dropdown-content li,
+.dropdown-content-top li {
   color: white;
   padding: 16px 16px;
   text-decoration: none;
@@ -226,11 +237,13 @@ h3.top-body-h3 {
   border-bottom: 1px solid #e6e5e5;
   transition: background-color 0.5s;
 }
-.dropdown-content li:hover {
+.dropdown-content li:hover,
+.dropdown-content-top li:hover {
   background-color: #7A0037;
 }
 
-.dropdown-content:after, .dropdown-content:before {
+.dropdown-content:after,
+.dropdown-content:before {
   bottom: 100%;
   left: 50%;
   border: solid transparent;

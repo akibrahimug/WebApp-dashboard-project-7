@@ -165,16 +165,30 @@ xbtn.addEventListener('click', e => {
 
 
 // notification and drop-down
+const bellDropDown = document.querySelector('.dropdown-content-top')
+
+
 pageWrap.addEventListener('click', e => {
     dropdown(e.target, alertBox)
     if(e.target === bellIcon){
         notificationDot.style.display = 'none'
-        for(let i = 1; i <= 2; i++){
-            on('You have unread messages');
+        bellDropDown.style.display = 'block'
+        for(let i = 0; i <= 2; i++){
+            const listItem = document.createElement('li');
+            listItem.textContent = 'Your Changes have been saved';
+            if(i === 1){
+                listItem.textContent = 'User Name is now Public'
+            }
+            if(i === 2){
+                listItem.textContent = 'New Update'
+            }
+            bellDropDown.appendChild(listItem);
         }
+       
         
     }else{
         notificationDot.style.display = 'block';
+        bellDropDown.style.display = 'none'
     }
     if(e.target ===  document.getElementById("overlay")){
         off()
@@ -348,7 +362,7 @@ cancel.addEventListener("click", () => {
     publicProfile.checked = false;
     timezone.value = 'select';
     localStorage.clear();
-    localStorage.setItem(timezone, timezone.value)
+    // localStorage.setItem("timezone", timezone.value)
   });
   
 
